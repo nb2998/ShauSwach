@@ -1,6 +1,8 @@
 package com.apps.nishtha.shauswach.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.apps.nishtha.shauswach.Activities.RatingActivity;
 import com.apps.nishtha.shauswach.Card;
 import com.apps.nishtha.shauswach.R;
 
@@ -33,9 +36,27 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardHolder>{
 
     @Override
     public void onBindViewHolder(CardHolder holder, int position) {
-        Card card=cardArrayList.get(position);
+        final Card card=cardArrayList.get(position);
         holder.tvTitle.setText(card.getTitle());
         holder.ivTab.setImageResource(card.getResId());
+
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(card.getTitle().equals(context.getResources().getString(R.string.rate))){
+                    Intent intent;
+                    intent=new Intent(context, RatingActivity.class);
+                    context.startActivity(intent);
+                } else if(card.getTitle().equals(context.getResources().getString(R.string.rate))){
+
+                } else if(card.getTitle().equals(context.getResources().getString(R.string.rate))){
+
+                } else{
+
+                }
+            }
+        });
+
     }
 
     @Override
@@ -44,10 +65,12 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardHolder>{
     }
 
     class CardHolder extends RecyclerView.ViewHolder{
+        CardView cardView;
         ImageView ivTab;
         TextView tvTitle;
         public CardHolder(View itemView) {
             super(itemView);
+            cardView=itemView.findViewById(R.id.cardView);
             ivTab=itemView.findViewById(R.id.ivTab);
             tvTitle=itemView.findViewById(R.id.tvTitle);
         }

@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">ShauSwach</string>
+    <string name="submit">Submit</string>
+    <string name="scan">Scan QR Code</string>
+    <string name="rate">Rate the washroom</string>
+    <string name="tutorial">Tutorial</string>
 </resources>

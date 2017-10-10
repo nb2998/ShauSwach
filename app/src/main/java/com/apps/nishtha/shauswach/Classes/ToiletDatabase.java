@@ -79,6 +79,3 @@ public class ToiletDatabase extends SQLiteOpenHelper {
         return dataList;
     }
 }
-
-
-}

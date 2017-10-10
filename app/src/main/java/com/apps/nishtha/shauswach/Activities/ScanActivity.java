@@ -93,6 +93,7 @@ public class ScanActivity extends AppCompatActivity {
                     Intent intent;
                     intent=new Intent(ScanActivity.this, RatingActivity.class);
                     intent.putExtra("id",toiletno);
+                    Log.e("Intent","called");
                     startActivity(intent);
 
                 } catch (JSONException e) {

@@ -40,35 +40,35 @@ public class RatingActivity extends AppCompatActivity {
 //        fbDb= FirebaseDatabase.getInstance();
 //        dbRef=fbDb.getReference();
         tdb=new ToiletDatabase(this);
-        setListenerOnRatingBar();
-        setListenerOnButton();
+      //  setListenerOnRatingBar();
+        //setListenerOnButton();
     }
 
-    private void setListenerOnRatingBar() {
-        ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
-            @Override
-            public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
-                rating=v;
-            }
-        });
-    }
+//    private void setListenerOnRatingBar() {
+//        ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+//            @Override
+//            public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
+//                rating=v;
+//            }
+//        });
+//    }
 
-    private void setListenerOnButton() {
-        btnSubmit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                rating=ratingBar.getRating();
-                Toast.makeText(RatingActivity.this,String.valueOf(rating),Toast.LENGTH_SHORT).show();
-
-                ToiletDatabase toiletDatabase=new ToiletDatabase(RatingActivity.this);
-                ArrayList<ToiletData> toiletDataArrayList= (ArrayList<ToiletData>) toiletDatabase.readData();
-                for(ToiletData td:toiletDataArrayList){
-                    if(td.getToiletno()==toiletId){
-                        //td.setRating(rating);
-                        tdb.update(td);
-                    }
-                }
-            }
-        });
-    }
+//    private void setListenerOnButton() {
+//        btnSubmit.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                rating=ratingBar.getRating();
+//                Toast.makeText(RatingActivity.this,String.valueOf(rating),Toast.LENGTH_SHORT).show();
+//
+//                ToiletDatabase toiletDatabase=new ToiletDatabase(RatingActivity.this);
+//                ArrayList<ToiletData> toiletDataArrayList= (ArrayList<ToiletData>) toiletDatabase.readData();
+//                for(ToiletData td:toiletDataArrayList){
+//                    if(td.getToiletno()==toiletId){
+//                        //td.setRating(rating);
+//                        tdb.update(td);
+//                    }
+//                }
+//            }
+//        });
+//    }
 }

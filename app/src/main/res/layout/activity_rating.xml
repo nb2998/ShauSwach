@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.apps.nishtha.shauswach.Activities.RatingActivity">
+    tools:context="com.apps.nishtha.shauswach.Activities.RatingActivity"
+    android:weightSum="1">
 
     <!--<RatingBar-->
         <!--android:id="@+id/ratingBar"-->
@@ -18,23 +19,23 @@
     <ImageButton
         android:id="@+id/buttonyes"
         android:orientation="horizontal"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
+        android:layout_width="305dp"
+        android:layout_height="244dp"
         android:text ="YES"
-        android:src="@drawable/smileyyes"
-         />
+        android:src="@drawable/tick" />
     <ImageButton
         android:id="@+id/buttonno"
         android:orientation="horizontal"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="NO"
-        android:src="@drawable/smileyno"
+        android:src="@drawable/wrong"
         />
     <Button
         android:id="@+id/btnSubmit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/submit"/>
+        android:text="@string/submit"
+        />
 
 </LinearLayout>

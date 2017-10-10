@@ -9,8 +9,7 @@
     <VideoView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/videoview1"
-        />
+        android:id="@+id/videoview1" />
 
     <Button
         android:id="@+id/button2"

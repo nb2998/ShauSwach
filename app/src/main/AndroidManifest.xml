@@ -17,6 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activities.Tutorial"></activity>
+        <activity android:name=".Activities.ScanActivity"></activity>
+        <activity android:name=".Activities.RatingActivity"></activity>
     </application>
 
 </manifest>

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,8 +52,10 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardHolder>{
                 } else if(card.getTitle().equals(context.getResources().getString(R.string.scan))){
                     Intent intent;
                     intent=new Intent(context, ScanActivity.class);
+                    Log.e("Intent of scan","called");
                     context.startActivity(intent);
-                } else if(card.getTitle().equals(context.getResources().getString(R.string.rate))){
+
+                } else if(card.getTitle().equals(context.getResources().getString(R.string.tutorial))){
 
                 } else{
 

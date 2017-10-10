@@ -30,7 +30,9 @@ public class ToiletDatabase extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase database) {
         String CREATE_TOILET_TABLE = "CREATE TABLE " + TABLE_NAME + "("
                 + KEY_NO + " INTEGER,"
-                + KEY_NAME + " TEXT" + ")";
+                + KEY_NAME + " TEXT,"
+                + KEY_RATING + " REAL" +
+                ")";
         database.execSQL(CREATE_TOILET_TABLE);
     }
     @Override
@@ -48,6 +50,7 @@ public class ToiletDatabase extends SQLiteOpenHelper {
         values.put(KEY_NO, d.toiletno); // Contact Name
         //values.put(KEY_DATE,d1.toString());
         values.put(KEY_NAME,d.toiletName);
+        values.put(KEY_RATING,d.rating);
 
         try {
             db.insert(TABLE_NAME, null, values);
@@ -58,6 +61,12 @@ public class ToiletDatabase extends SQLiteOpenHelper {
         }
         //2nd argument is String containing nullColumnHack
         db.close(); // Closing database connection
+    }
+    public void remData(ToiletData d)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String delquery="DELETE FROM " + TABLE_NAME + " WHERE " + KEY_NO+ "=" + d.getToiletno() + ";";
+        db.execSQL(delquery);
     }
     public List<ToiletData> readData() {
         List<ToiletData> dataList = new ArrayList<ToiletData>();
@@ -71,11 +80,22 @@ public class ToiletDatabase extends SQLiteOpenHelper {
                 ToiletData d = new ToiletData();
                 d.toiletno=Integer.parseInt(cursor.getString(0));
                 d.toiletName=cursor.getString(1);
+                d.rating=Float.parseFloat(cursor.getString(2));
                 // Adding toiletdata to list
                 dataList.add(d);
                 Log.e("in getAllcont",dataList.toString());
             } while (cursor.moveToNext());
         }
         return dataList;
+    }
+
+    public void update (ToiletData toiletData){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv=new ContentValues();
+        cv.put(KEY_NO,toiletData.getToiletno());
+        cv.put(KEY_NAME,toiletData.getToiletName());
+        cv.put(KEY_RATING,toiletData.getRating());
+        db.update(TABLE_NAME,cv,KEY_NO+"=?",new String[]{String.valueOf(toiletData.getToiletno())});
+        Log.d("TAG", "update: "+ toiletData.toString());
     }
 }

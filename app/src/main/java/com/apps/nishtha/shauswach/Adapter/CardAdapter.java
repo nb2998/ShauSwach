@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.apps.nishtha.shauswach.Activities.RatingActivity;
+import com.apps.nishtha.shauswach.Activities.LeaderboardActivity;
 import com.apps.nishtha.shauswach.Activities.ScanActivity;
 import com.apps.nishtha.shauswach.Card;
 import com.apps.nishtha.shauswach.R;
@@ -45,9 +45,9 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardHolder>{
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(card.getTitle().equals(context.getResources().getString(R.string.rate))){
+                if(card.getTitle().equals(context.getResources().getString(R.string.leaderboard))){
                     Intent intent;
-                    intent=new Intent(context, RatingActivity.class);
+                    intent=new Intent(context, LeaderboardActivity.class);
                     context.startActivity(intent);
                 } else if(card.getTitle().equals(context.getResources().getString(R.string.scan))){
                     Intent intent;

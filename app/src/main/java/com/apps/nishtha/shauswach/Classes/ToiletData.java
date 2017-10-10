@@ -44,6 +44,15 @@ public class ToiletData {
         this.toiletno = toiletno;
     }
 
+    public void setWrong(int wrong) {
+        this.wrong = wrong;
+    }
+
+    public void setYes(int yes) {
+
+        this.yes = yes;
+    }
+
     public void setToiletName(String toiletName) {
         this.toiletName = toiletName;
     }

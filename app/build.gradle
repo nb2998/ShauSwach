@@ -31,8 +31,10 @@ dependencies {
     compile 'com.squareup.okhttp3:okhttp:3.8.1'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.android.support:support-v4:26.+'
-    compile 'com.android.support:design:26+'
-    compile 'com.android.support:recyclerview-v7:26+'
+    compile 'com.android.support:design:26.+'
+    compile 'com.android.support:recyclerview-v7:26.+'
     compile 'com.jpardogo.materialtabstrip:library:1.0.6'
     testCompile 'junit:junit:4.12'
+
+    compile 'com.journeyapps:zxing-android-embedded:3.4.0'
 }

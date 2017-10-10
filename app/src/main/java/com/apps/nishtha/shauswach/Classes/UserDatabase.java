@@ -61,17 +61,22 @@ public class UserDatabase extends SQLiteOpenHelper {
         db.close(); // Closing database connection
     }
     public int readData() {
-        int rpts;
+        Log.e("rpts(-1)=","");
+        int rpts=0;
         String selectQuery = "SELECT  * FROM " + TABLE_NAME;
         SQLiteDatabase db = this.getWritableDatabase();
+        Log.e("rpts0=",""+rpts);
         Cursor cursor = db.rawQuery(selectQuery, null);
+        Log.e("rpts1=",""+rpts);
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             rpts=Integer.parseInt(cursor.getString(0));
+            Log.e("rpts=",""+rpts);
         }
         else{
             rpts=0;
         }
+        Log.e("rpts2=",""+rpts);
         return rpts;
     }
 }

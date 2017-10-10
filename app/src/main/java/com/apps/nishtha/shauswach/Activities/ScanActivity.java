@@ -3,6 +3,7 @@ package com.apps.nishtha.shauswach.Activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -23,34 +24,44 @@ import java.util.List;
 public class ScanActivity extends AppCompatActivity {
 
     private Button buttonScan;
-    private TextView textViewName, textViewAddress;
+    private TextView textViewName, textViewAddress,textViewRewardPoints;
     ToiletDatabase tdb;
     UserDatabase udb;
     //qr code scanner object
-    private IntentIntegrator qrScan;
+    public IntentIntegrator qrScan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.e("scanActivity","started");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan);
+        udb=new UserDatabase(this);
+        tdb=new ToiletDatabase(this);
         buttonScan = (Button) findViewById(R.id.buttonScan);
         textViewName = (TextView) findViewById(R.id.textViewName);
         textViewAddress = (TextView) findViewById(R.id.textViewAddress);
+        textViewRewardPoints=(TextView) findViewById(R.id.textViewRewardPoints);
         //intializing scan object
-        qrScan = new IntentIntegrator(this);
+        Log.e("scanActivity2","started");
+
+        Log.e("scanActivity3","started");
         buttonScan.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v)
             {
                 qrScan.initiateScan();
             }
         });
-
+        qrScan = new IntentIntegrator(this);
+        Log.e("scanActivity4","started");
+        textViewRewardPoints.setText(String.valueOf(udb.readData()));
+        Log.e("scanActivity5","started");
     }
     //Getting the scan results
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
 
+        Log.e("onActivityResult","started");
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
         int toiletno;
         String toiletname;
 
@@ -63,15 +74,11 @@ public class ScanActivity extends AppCompatActivity {
                 try {
                     //converting the data to json
                     JSONObject obj = new JSONObject(result.getContents());
-                    //setting values to textviews
                     toiletno=Integer.parseInt(obj.getString("Toilet no"));
-                    //textViewName.setText(obj.getString("Toilet no"));
                     toiletname=obj.getString("Location");
-                    //textViewAddress.setText(obj.getString("Location"));
                     ToiletData td=new ToiletData(toiletno,toiletname);
-                    textViewName.setText(toiletno);
+                    textViewName.setText(String.valueOf(toiletno));
                     textViewAddress.setText(toiletname);
-
                     List<ToiletData> toiletDataList=tdb.readData();
                     if(toiletDataList.contains(td)){
 
@@ -81,7 +88,7 @@ public class ScanActivity extends AppCompatActivity {
                         tdb.addData(td);
                     }
                     udb.addData();
-
+                    textViewRewardPoints.setText(String.valueOf(udb.readData()));
                 } catch (JSONException e) {
                     e.printStackTrace();
                     //if control comes here

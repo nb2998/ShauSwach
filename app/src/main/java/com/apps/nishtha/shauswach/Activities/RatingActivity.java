@@ -16,8 +16,8 @@ public class RatingActivity extends AppCompatActivity {
     RatingBar ratingBar;
     Button btnSubmit;
     Float rating;
-    FirebaseDatabase fbDb;
-    DatabaseReference dbRef;
+    //FirebaseDatabase fbDb;
+  //  DatabaseReference dbRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,8 +27,8 @@ public class RatingActivity extends AppCompatActivity {
         btnSubmit= (Button) findViewById(R.id.btnSubmit);
         ratingBar= (RatingBar) findViewById(R.id.ratingBar);
 
-        fbDb=FirebaseDatabase.getInstance();
-        dbRef=fbDb.getReference();
+//        fbDb=FirebaseDatabase.getInstance();
+//        dbRef=fbDb.getReference();
 
         setListenerOnRatingBar();
         setListenerOnButton();

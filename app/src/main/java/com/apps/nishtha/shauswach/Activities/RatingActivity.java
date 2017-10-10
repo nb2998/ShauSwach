@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.RatingBar;
 import android.widget.Toast;
 
@@ -23,7 +24,7 @@ public class RatingActivity extends AppCompatActivity {
 //    DatabaseReference dbRef;
     ToiletDatabase tdb;
     int toiletId;
-
+  ImageButton yesbutton,nobutton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,8 +35,8 @@ public class RatingActivity extends AppCompatActivity {
         toiletId = intent.getIntExtra("id",0);
 
         btnSubmit= (Button) findViewById(R.id.btnSubmit);
-        ratingBar= (RatingBar) findViewById(R.id.ratingBar);
-
+          yesbutton=(ImageButton) findViewById(R.id.buttonyes);
+         nobutton=(ImageButton) findViewById(R.id.buttonno);
 //        fbDb= FirebaseDatabase.getInstance();
 //        dbRef=fbDb.getReference();
         tdb=new ToiletDatabase(this);
@@ -63,7 +64,7 @@ public class RatingActivity extends AppCompatActivity {
                 ArrayList<ToiletData> toiletDataArrayList= (ArrayList<ToiletData>) toiletDatabase.readData();
                 for(ToiletData td:toiletDataArrayList){
                     if(td.getToiletno()==toiletId){
-                        td.setRating(rating);
+                        //td.setRating(rating);
                         tdb.update(td);
                     }
                 }

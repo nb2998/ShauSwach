@@ -1,23 +1,26 @@
 package com.apps.nishtha.shauswach.Classes;
 
+import static android.R.attr.rating;
+import static android.R.string.no;
+
 /**
  * Created by Nishita Aggarwal on 10-10-2017.
  */
 
 public class ToiletData {
-    int toiletno;
+    int toiletno,yes,wrong;
     String toiletName;
-    float rating;
+
     ToiletData()
     {
-        rating=0;
+        yes=wrong=0;
     }
 
     public ToiletData(int num, String name)
     {
         toiletno=num;
         toiletName=name;
-        rating =0;
+        yes=wrong=0;
     }
 
     public int getToiletno() {
@@ -28,8 +31,13 @@ public class ToiletData {
         return toiletName;
     }
 
-    public float getRating() {
-        return rating;
+    public int getWrong() {
+        return wrong;
+    }
+
+    public int getYes() {
+        return yes;
+
     }
 
     public void setToiletno(int toiletno) {
@@ -40,8 +48,5 @@ public class ToiletData {
         this.toiletName = toiletName;
     }
 
-    public void setRating(float rating) {
-        this.rating = rating;
-    }
 }
 

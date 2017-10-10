@@ -16,9 +16,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.Tutorial"></activity>
-        <activity android:name=".Activities.ScanActivity"></activity>
-        <activity android:name=".Activities.RatingActivity"></activity>
+        <activity android:name=".Activities.Tutorial" />
+        <activity android:name=".Activities.ScanActivity" />
+        <activity android:name=".Activities.RatingActivity" />
+        <activity android:name=".Activities.LeaderboardActivity"></activity>
     </application>
 
 </manifest>

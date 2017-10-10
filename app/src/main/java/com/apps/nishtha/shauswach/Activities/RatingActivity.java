@@ -7,9 +7,13 @@ import android.widget.Button;
 import android.widget.RatingBar;
 import android.widget.Toast;
 
+import com.apps.nishtha.shauswach.Classes.ToiletData;
+import com.apps.nishtha.shauswach.Classes.ToiletDatabase;
 import com.apps.nishtha.shauswach.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
 
 public class RatingActivity extends AppCompatActivity {
 
@@ -49,6 +53,10 @@ public class RatingActivity extends AppCompatActivity {
             public void onClick(View view) {
                 rating=ratingBar.getRating();
                 Toast.makeText(RatingActivity.this,String.valueOf(rating),Toast.LENGTH_SHORT).show();
+
+                ToiletDatabase toiletDatabase=new ToiletDatabase(RatingActivity.this);
+                ArrayList<ToiletData> toiletDataArrayList= (ArrayList<ToiletData>) toiletDatabase.readData();
+
 
             }
         });

@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.apps.nishtha.shauswach.Activities.RatingActivity;
+import com.apps.nishtha.shauswach.Activities.ScanActivity;
 import com.apps.nishtha.shauswach.Card;
 import com.apps.nishtha.shauswach.R;
 
@@ -47,8 +48,10 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardHolder>{
                     Intent intent;
                     intent=new Intent(context, RatingActivity.class);
                     context.startActivity(intent);
-                } else if(card.getTitle().equals(context.getResources().getString(R.string.rate))){
-
+                } else if(card.getTitle().equals(context.getResources().getString(R.string.scan))){
+                    Intent intent;
+                    intent=new Intent(context, ScanActivity.class);
+                    context.startActivity(intent);
                 } else if(card.getTitle().equals(context.getResources().getString(R.string.rate))){
 
                 } else{

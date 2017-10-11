@@ -36,6 +36,8 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:26.+'
     compile 'com.jpardogo.materialtabstrip:library:1.0.6'
     compile 'com.google.firebase:firebase-database:11.0.2'
+    compile 'com.afollestad:easyvideoplayer:0.3.0'
+    compile 'com.github.rtoshiro.fullscreenvideoview:fullscreenvideoview:1.1.2'
     compile 'com.journeyapps:zxing-android-embedded:3.4.0'
     testCompile 'junit:junit:4.12'
 }

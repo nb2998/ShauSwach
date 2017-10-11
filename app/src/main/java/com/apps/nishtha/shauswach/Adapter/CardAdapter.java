@@ -13,6 +13,8 @@ import android.widget.TextView;
 
 import com.apps.nishtha.shauswach.Activities.LeaderboardActivity;
 import com.apps.nishtha.shauswach.Activities.ScanActivity;
+import com.apps.nishtha.shauswach.Activities.Tutorial;
+import com.apps.nishtha.shauswach.Activities.Tutorials2Activity;
 import com.apps.nishtha.shauswach.Card;
 import com.apps.nishtha.shauswach.R;
 
@@ -56,7 +58,10 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardHolder>{
                     context.startActivity(intent);
 
                 } else if(card.getTitle().equals(context.getResources().getString(R.string.tutorial))){
-
+                    Intent intent;
+                    intent=new Intent(context, Tutorials2Activity.class);
+                    Log.e("Intent of tutorial","called");
+                    context.startActivity(intent);
                 } else{
 
                 }

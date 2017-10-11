@@ -6,16 +6,12 @@
     android:layout_height="match_parent"
     tools:context="com.apps.nishtha.shauswach.Activities.Tutorial">
 
-    <VideoView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/videoview1" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"/>
+    <com.afollestad.easyvideoplayer.EasyVideoPlayer xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/player"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <!--<com.github.rtoshiro.view.video.FullscreenVideoLayout-->
+        <!--android:id="@+id/videoview"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent" />-->
 </android.support.constraint.ConstraintLayout>

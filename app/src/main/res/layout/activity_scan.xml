@@ -10,9 +10,6 @@
     tools:context="com.apps.nishtha.shauswach.Activities.ScanActivity">
 
 
-
-
-
     <Button
         android:id="@+id/buttonScan"
         android:layout_width="match_parent"

@@ -13,7 +13,6 @@ import android.widget.TextView;
 
 import com.apps.nishtha.shauswach.Activities.LeaderboardActivity;
 import com.apps.nishtha.shauswach.Activities.ScanActivity;
-import com.apps.nishtha.shauswach.Activities.Tutorial;
 import com.apps.nishtha.shauswach.Activities.Tutorials2Activity;
 import com.apps.nishtha.shauswach.Card;
 import com.apps.nishtha.shauswach.R;
@@ -49,6 +48,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardHolder>{
             public void onClick(View view) {
                 if(card.getTitle().equals(context.getResources().getString(R.string.leaderboard))){
                     Intent intent;
+                    Log.e("TAG", "onClick: LB");
                     intent=new Intent(context, LeaderboardActivity.class);
                     context.startActivity(intent);
                 } else if(card.getTitle().equals(context.getResources().getString(R.string.scan))){

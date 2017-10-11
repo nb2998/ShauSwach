@@ -23,35 +23,37 @@ public class MainActivity extends AppCompatActivity {
     MediaPlayer mediaPlayer;
     RecyclerView recView;
     CardAdapter cardAdapter;
-    ArrayList<Card> cardArrayList=new ArrayList<>();
+    ArrayList<Card> cardArrayList = new ArrayList<>();
     ImageButton imageButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        imageButton= (ImageButton) findViewById(R.id.btnPlayMain);
-        cardArrayList.add(0,new Card(getString(R.string.scan), R.drawable.qr));
-        cardArrayList.add(1,new Card(getString(R.string.leaderboard), R.drawable.lb));
-        cardArrayList.add(2,new Card(getString(R.string.tutorial), R.drawable.tut));
+        Log.d("TAGGER", "onCreate: ");
+        imageButton = (ImageButton) findViewById(R.id.btnPlayMain);
+        cardArrayList.add(0, new Card(getString(R.string.scan), R.drawable.qr));
+        cardArrayList.add(1, new Card(getString(R.string.leaderboard), R.drawable.lb));
+        cardArrayList.add(2, new Card(getString(R.string.tutorial), R.drawable.tut));
 
-        recView= (RecyclerView) findViewById(R.id.recView);
-        cardAdapter=new CardAdapter(this,cardArrayList);
+        recView = (RecyclerView) findViewById(R.id.recView);
+        cardAdapter = new CardAdapter(this, cardArrayList);
         recView.setLayoutManager(new LinearLayoutManager(this));
         recView.setAdapter(cardAdapter);
 
+        mediaPlayer = new MediaPlayer();
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                mediaPlayer = new MediaPlayer();
+
                 mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
-                try {
-                    mediaPlayer.setDataSource(MainActivity.this, Uri.parse("android.resource://com.apps.nishtha.shauswach.Activities/"+R.raw.swagat));
+                try {/**/
+                    mediaPlayer.setDataSource(MainActivity.this, Uri.parse("android.resource://com.apps.nishtha.shauswach/" + R.raw.swagat));
                     mediaPlayer.prepareAsync();
                 } catch (IOException e) {
                     e.printStackTrace();
-                    Log.d("TAG", "onClick: "+e.getLocalizedMessage());
+                    Log.d("TAG", "onClick: " + e.getLocalizedMessage());
                 }
 
                 mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {

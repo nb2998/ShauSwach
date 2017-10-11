@@ -25,8 +25,8 @@ public class LeaderboardActivity extends AppCompatActivity {
         areaLBArrayList.add(0,new AreaLB("Badli",1));
         areaLBArrayList.add(1,new AreaLB("Kondli",2));
         areaLBArrayList.add(2,new AreaLB("Gharoli",3));
-        areaLBArrayList.add(2,new AreaLB("Dallo Pura",3));
-        areaLBArrayList.add(2,new AreaLB("Gharonda",3));
+        areaLBArrayList.add(3,new AreaLB("Dallo Pura",4));
+        areaLBArrayList.add(4,new AreaLB("Gharonda",5));
 
         reciewLb= (RecyclerView) findViewById(R.id.recViewLB);
         reciewLb.setLayoutManager(new LinearLayoutManager(this));

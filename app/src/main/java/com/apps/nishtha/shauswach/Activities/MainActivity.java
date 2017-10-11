@@ -22,9 +22,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        cardArrayList.add(0,new Card(getString(R.string.scan), R.drawable.scan));
-        cardArrayList.add(1,new Card(getString(R.string.leaderboard), R.drawable.star));
-        cardArrayList.add(2,new Card(getString(R.string.tutorial), R.drawable.tutorial));
+        cardArrayList.add(0,new Card(getString(R.string.scan), R.drawable.qr));
+        cardArrayList.add(1,new Card(getString(R.string.leaderboard), R.drawable.lb));
+        cardArrayList.add(2,new Card(getString(R.string.tutorial), R.drawable.tut));
 
         recView= (RecyclerView) findViewById(R.id.recView);
         cardAdapter=new CardAdapter(this,cardArrayList);

@@ -38,7 +38,6 @@ public class RatingActivity extends AppCompatActivity {
         toiletId = intent.getIntExtra("id",0);
         final ArrayList<ToiletData> arrl= (ArrayList<ToiletData>) tdb.readData();
 
-        btnSubmit= (Button) findViewById(R.id.btnSubmit);
           yesbutton=(ImageButton) findViewById(R.id.buttonyes);
         yesbutton.setOnClickListener(new View.OnClickListener() {
                                          @Override

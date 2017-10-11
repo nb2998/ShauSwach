@@ -38,8 +38,8 @@ public class ScanActivity extends AppCompatActivity {
         udb=new UserDatabase(this);
         tdb=new ToiletDatabase(this);
         buttonScan = (Button) findViewById(R.id.buttonScan);
-        textViewName = (TextView) findViewById(R.id.textViewName);
-        textViewAddress = (TextView) findViewById(R.id.textViewAddress);
+//        textViewName = (TextView) findViewById(R.id.textViewName);
+//        textViewAddress = (TextView) findViewById(R.id.textViewAddress);
         textViewRewardPoints=(TextView) findViewById(R.id.textViewRewardPoints);
         //intializing scan object
         Log.e("scanActivity2","started");
@@ -53,7 +53,7 @@ public class ScanActivity extends AppCompatActivity {
         });
         qrScan = new IntentIntegrator(this);
         Log.e("scanActivity4","started");
-        textViewRewardPoints.setText(String.valueOf(udb.readData()));
+        textViewRewardPoints.setText(String.valueOf("You have "+udb.readData().getRwdpts())+" points.");
         Log.e("scanActivity5","started");
     }
     //Getting the scan results
@@ -77,8 +77,8 @@ public class ScanActivity extends AppCompatActivity {
                     toiletno=Integer.parseInt(obj.getString("Toilet no"));
                     toiletname=obj.getString("Location");
                     ToiletData td=new ToiletData(toiletno,toiletname);
-                    textViewName.setText(String.valueOf(toiletno));
-                    textViewAddress.setText(toiletname);
+//                    textViewName.setText(String.valueOf(toiletno));
+//                    textViewAddress.setText(toiletname);
                     List<ToiletData> toiletDataList=tdb.readData();
                     if(toiletDataList.contains(td)){
 

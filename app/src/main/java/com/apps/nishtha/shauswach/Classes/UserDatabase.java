@@ -15,6 +15,7 @@ public class UserDatabase extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "USERDATABASE";
     private static final String TABLE_NAME = "USER";
+    private static final String KEY_CNT = "CNT";
     private static final String KEY_REWPTS="REWARDPOINTS";
 
     public UserDatabase(Context context) {
@@ -23,7 +24,8 @@ public class UserDatabase extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase database) {
         String CREATE_TOILET_TABLE = "CREATE TABLE " + TABLE_NAME + "("
-                + KEY_REWPTS + " INTEGER" + ")";
+                + KEY_REWPTS + " INTEGER,"
+                + KEY_CNT + " INTEGER"+")";
         database.execSQL(CREATE_TOILET_TABLE);
     }
     @Override
@@ -37,12 +39,13 @@ public class UserDatabase extends SQLiteOpenHelper {
     public void addData()
     {
         Log.e("adddata","called");
-        int rpts=readData();
+        UserData ud=readData();
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(KEY_REWPTS, rpts+1); // Contact Name
+        values.put(KEY_REWPTS, ud.getRwdpts()+1); // Contact Name
+        values.put(KEY_CNT,ud.getCnt());
         String delQuery="DELETE FROM "+ TABLE_NAME+" ;";
-        if(rpts!=0)
+        if(ud.getRwdpts()!=0)
         {
             db.execSQL(delQuery);
         }
@@ -56,9 +59,19 @@ public class UserDatabase extends SQLiteOpenHelper {
         //2nd argument is String containing nullColumnHack
         db.close(); // Closing database connection
     }
-    public int readData() {
+
+    public void update(UserData ud){
+        ContentValues cv=new ContentValues();
+        cv.put(KEY_REWPTS,ud.getRwdpts());
+        cv.put(KEY_CNT,ud.getCnt());
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.update(TABLE_NAME,cv,null,null);
+        db.close();
+
+    }
+    public UserData readData() {
         Log.e("rpts(-1)=","");
-        int rpts=0;
+        int rpts=0,cnt=0;
         String selectQuery = "SELECT  * FROM " + TABLE_NAME;
         SQLiteDatabase db = this.getWritableDatabase();
         Log.e("rpts0=",""+rpts);
@@ -68,11 +81,13 @@ public class UserDatabase extends SQLiteOpenHelper {
         if (cursor.moveToFirst()) {
             rpts=Integer.parseInt(cursor.getString(0));
             Log.e("rpts=",""+rpts);
+            cnt=Integer.parseInt(cursor.getString(1));
         }
         else{
             rpts=0;
         }
         Log.e("rpts2=",""+rpts);
-        return rpts;
+        UserData ud=new UserData(rpts,cnt);
+        return ud;
     }
 }

@@ -22,9 +22,11 @@ public class LeaderboardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_leaderboard);
 
-        areaLBArrayList.add(0,new AreaLB("Village 1",1));
-        areaLBArrayList.add(1,new AreaLB("Village 2",2));
-        areaLBArrayList.add(2,new AreaLB("Village 3",3));
+        areaLBArrayList.add(0,new AreaLB("Badli",1));
+        areaLBArrayList.add(1,new AreaLB("Kondli",2));
+        areaLBArrayList.add(2,new AreaLB("Gharoli",3));
+        areaLBArrayList.add(2,new AreaLB("Dallo Pura",3));
+        areaLBArrayList.add(2,new AreaLB("Gharonda",3));
 
         reciewLb= (RecyclerView) findViewById(R.id.recViewLB);
         reciewLb.setLayoutManager(new LinearLayoutManager(this));

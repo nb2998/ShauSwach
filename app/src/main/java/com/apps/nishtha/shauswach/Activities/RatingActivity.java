@@ -3,6 +3,7 @@ package com.apps.nishtha.shauswach.Activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -21,58 +22,71 @@ public class RatingActivity extends AppCompatActivity {
     Button btnSubmit;
     ToiletData td;
     Float rating;
-//    FirebaseDatabase fbDb;
+    //    FirebaseDatabase fbDb;
 //    DatabaseReference dbRef;
     ToiletDatabase tdb;
     int toiletId;
     String ToiletName;
 
-  ImageButton yesbutton,nobutton;
+    ImageButton yesbutton, nobutton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rating);
 
-        Intent intent=getIntent();
-        tdb=new ToiletDatabase(this);
-        toiletId = intent.getIntExtra("id",0);
-        final ArrayList<ToiletData> arrl= (ArrayList<ToiletData>) tdb.readData();
+        Intent intent = getIntent();
+        tdb = new ToiletDatabase(this);
+        toiletId = intent.getIntExtra("id", 0);
+        final ArrayList<ToiletData> arrl = (ArrayList<ToiletData>) tdb.readData();
 
-          yesbutton=(ImageButton) findViewById(R.id.buttonyes);
+        yesbutton = (ImageButton) findViewById(R.id.buttonyes);
         yesbutton.setOnClickListener(new View.OnClickListener() {
                                          @Override
                                          public void onClick(View view) {
-                                          for(ToiletData temp:arrl){
-                                              if(temp.getToiletno()==toiletId)
-                                              {
-                                                  temp.setYes(temp.getYes()+1);
-                                                  tdb.update(temp);
-                                                  break;
-                                              }
-                                          }
+                                             for (ToiletData temp : arrl) {
+                                                 if (temp.getToiletno() == toiletId) {
+                                                     temp.setYes(temp.getYes() + 1);
+                                                     tdb.update(temp);
+                                                     onBackPressed();
+                                                     break;
+                                                 }
+                                             }
                                          }
                                      }
         );
-         nobutton=(ImageButton) findViewById(R.id.buttonno);
+        nobutton = (ImageButton) findViewById(R.id.buttonno);
 //        fbDb= FirebaseDatabase.getInstance();
 //        dbRef=fbDb.getReference();
-      //  setListenerOnRatingBar();
+        //  setListenerOnRatingBar();
         //setListenerOnButton();
     }
 
     public void noFunc(View view) {
-        final ArrayList<ToiletData> arrl= (ArrayList<ToiletData>) tdb.readData();
-        for(ToiletData temp:arrl){
-            if(temp.getToiletno()==toiletId)
-            {
-                temp.setWrong(temp.getWrong()+1);
+        final ArrayList<ToiletData> arrl = (ArrayList<ToiletData>) tdb.readData();
+        for (ToiletData temp : arrl) {
+            if (temp.getToiletno() == toiletId) {
+                temp.setWrong(temp.getWrong() + 1);
                 tdb.update(temp);
+                onBackPressed();
                 break;
             }
         }
     }
 
-//    private void setListenerOnRatingBar() {
+    @Override
+    public void onBackPressed() {
+        try {
+            Intent intent=new Intent(this,MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        }catch(Exception e){
+            Log.e("TAG", "onBackPressed: "+e.getLocalizedMessage() );
+        }
+
+        }
+
+        //    private void setListenerOnRatingBar() {
 //        ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
 //            @Override
 //            public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
@@ -101,4 +115,4 @@ public class RatingActivity extends AppCompatActivity {
 //    }
 
 
-}
+    }

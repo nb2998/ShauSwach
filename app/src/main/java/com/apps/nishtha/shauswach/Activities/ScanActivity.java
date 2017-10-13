@@ -90,9 +90,11 @@ public class ScanActivity extends AppCompatActivity {
                     udb.addData();
                     textViewRewardPoints.setText(String.valueOf(udb.readData()));
 
+                    Log.d("TAG", "onActivityResult: before intent");
                     Intent intent;
                     intent=new Intent(ScanActivity.this, RatingActivity.class);
                     intent.putExtra("id",toiletno);
+                    finish();
                     Log.e("Intent","called");
                     startActivity(intent);
 

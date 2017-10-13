@@ -44,6 +44,7 @@ public class RatingActivity extends AppCompatActivity {
         tdb = new ToiletDatabase(this);
         toiletId = intent.getIntExtra("id", 0);
         final ArrayList<ToiletData> arrl = (ArrayList<ToiletData>) tdb.readData();
+        imageButton= (ImageButton) findViewById(R.id.btnPlayMain);
 
         yesbutton = (ImageButton) findViewById(R.id.buttonyes);
         yesbutton.setOnClickListener(new View.OnClickListener() {
@@ -59,6 +60,7 @@ public class RatingActivity extends AppCompatActivity {
                                              }
                                          }
                                      }
+
         );
 
         mediaPlayer=new MediaPlayer();
@@ -110,6 +112,7 @@ public class RatingActivity extends AppCompatActivity {
             Intent intent=new Intent(this,MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
+            finish();
         }catch(Exception e){
             Log.e("TAG", "onBackPressed: "+e.getLocalizedMessage() );
         }
@@ -143,6 +146,7 @@ public class RatingActivity extends AppCompatActivity {
 //            }
 //        });
 //    }
+
 
 
     }

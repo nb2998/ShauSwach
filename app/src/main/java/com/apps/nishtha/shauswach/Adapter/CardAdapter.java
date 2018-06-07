@@ -81,6 +81,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardHolder>{
         TextView tvTitle;
         public CardHolder(View itemView) {
             super(itemView);
+
             cardView=itemView.findViewById(R.id.cardView);
             ivTab=itemView.findViewById(R.id.ivTab);
             tvTitle=itemView.findViewById(R.id.tvTitle);

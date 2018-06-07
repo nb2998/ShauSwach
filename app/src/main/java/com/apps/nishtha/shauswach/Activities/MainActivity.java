@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.apps.nishtha.shauswach.Adapter.CardAdapter;
 import com.apps.nishtha.shauswach.Card;
@@ -48,9 +49,13 @@ public class MainActivity extends AppCompatActivity {
 
 
                 mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
-                try {/**/
-                    mediaPlayer.setDataSource(MainActivity.this, Uri.parse("android.resource://com.apps.nishtha.shauswach/" + R.raw.swagat));
-                    mediaPlayer.prepareAsync();
+                try {
+                    if(!mediaPlayer.isPlaying()) {
+                        mediaPlayer.setDataSource(MainActivity.this, Uri.parse("android.resource://com.apps.nishtha.shauswach/" + R.raw.swagat));
+                        mediaPlayer.prepareAsync();
+                    } else{
+                        Toast.makeText(MainActivity.this,"Already playing",Toast.LENGTH_SHORT).show();
+                    }
                 } catch (IOException e) {
                     e.printStackTrace();
                     Log.d("TAG", "onClick: " + e.getLocalizedMessage());

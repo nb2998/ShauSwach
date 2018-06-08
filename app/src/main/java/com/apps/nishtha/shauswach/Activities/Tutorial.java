@@ -7,7 +7,7 @@ import android.widget.MediaController;
 import android.widget.VideoView;
 
 import com.apps.nishtha.shauswach.R;
-
+// NOT USED NOW
 public class Tutorial extends AppCompatActivity{
     VideoView videoView;
     MediaController mediaController;

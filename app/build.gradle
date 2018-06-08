@@ -39,5 +39,6 @@ dependencies {
     compile 'com.afollestad:easyvideoplayer:0.3.0'
     compile 'com.github.rtoshiro.fullscreenvideoview:fullscreenvideoview:1.1.2'
     compile 'com.journeyapps:zxing-android-embedded:3.4.0'
+    compile files ('libs/YouTubeAndroidPlayerApi.jar')
     testCompile 'junit:junit:4.12'
 }

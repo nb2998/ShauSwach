@@ -16,63 +16,70 @@
         android:src="@android:drawable/stat_sys_speakerphone" />
 
 
-    <LinearLayout
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:layout_margin="10dp"-->
+        <!--android:layout_weight="1"-->
+        <!--android:orientation="horizontal">-->
+
+        <!--<Button-->
+            <!--android:id="@+id/about"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_margin="10dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:background="#00695c"-->
+            <!--android:text="TUTORIAL1"-->
+            <!--android:textStyle="bold"-->
+
+            <!--/>-->
+
+        <!--<Button-->
+            <!--android:id="@+id/login"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_margin="10dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:background="#00695c"-->
+            <!--android:text="TUTORIAL2"-->
+            <!--android:textStyle="bold" />-->
+
+    <!--</LinearLayout>-->
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:layout_margin="10dp"-->
+        <!--android:layout_weight="1"-->
+        <!--android:orientation="horizontal">-->
+
+        <!--<Button-->
+            <!--android:id="@+id/register"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_margin="10dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:background="#26a69a"-->
+            <!--android:text="TUTORIAL3"-->
+            <!--android:textStyle="bold" />-->
+
+        <!--<Button-->
+            <!--android:id="@+id/stats"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_margin="10dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:background="#26a69a"-->
+            <!--android:text="TUTORIAL4"-->
+            <!--android:textStyle="bold" />-->
+
+    <fragment
+        android:layout_below="@+id/id_video_play_text"
+        android:id="@+id/youtube_player_fragment"
+        android:name="com.google.android.youtube.player.YouTubePlayerFragment"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="10dp"
-        android:layout_weight="1"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"/>
 
-        <Button
-            android:id="@+id/about"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp"
-            android:layout_weight="1"
-            android:background="#00695c"
-            android:text="TUTORIAL1"
-            android:textStyle="bold"
-
-            />
-
-        <Button
-            android:id="@+id/login"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp"
-            android:layout_weight="1"
-            android:background="#00695c"
-            android:text="TUTORIAL2"
-            android:textStyle="bold" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="10dp"
-        android:layout_weight="1"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/register"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp"
-            android:layout_weight="1"
-            android:background="#26a69a"
-            android:text="TUTORIAL3"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/stats"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp"
-            android:layout_weight="1"
-            android:background="#26a69a"
-            android:text="TUTORIAL4"
-            android:textStyle="bold" />
-
-    </LinearLayout>
+    <!--</LinearLayout>-->
 </LinearLayout>

@@ -62,8 +62,6 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardHolder>{
                     intent=new Intent(context, Tutorials2Activity.class);
                     Log.e("Intent of tutorial","called");
                     context.startActivity(intent);
-                } else{
-
                 }
             }
         });

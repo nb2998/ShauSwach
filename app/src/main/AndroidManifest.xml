@@ -29,7 +29,6 @@
         <activity android:name=".Activities.RatingActivity" />
         <activity android:name=".Activities.LeaderboardActivity" />
         <activity android:name=".Activities.Tutorials2Activity" />
-        <activity android:name=".Activities.video1"></activity>
     </application>
 
 </manifest>

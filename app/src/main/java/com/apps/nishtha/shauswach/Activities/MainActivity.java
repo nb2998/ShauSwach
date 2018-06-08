@@ -47,14 +47,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                mediaPlayer.reset();
-                mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
                 try {
-                    if(!mediaPlayer.isPlaying()) {
+                    if (!mediaPlayer.isPlaying()) {
+                        mediaPlayer.reset();
+                        mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
                         mediaPlayer.setDataSource(MainActivity.this, Uri.parse("android.resource://com.apps.nishtha.shauswach/" + R.raw.swagat));
                         mediaPlayer.prepareAsync();
-                    } else{
-                        Toast.makeText(MainActivity.this,"Already playing",Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(MainActivity.this, "Already playing", Toast.LENGTH_SHORT).show();
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -70,9 +70,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
     @Override
-    protected void onStop() {
-        mediaPlayer.release();
-        super.onStop();
+    protected void onResume() {
+        super.onResume();
+        mediaPlayer = MediaPlayer.create(this, Uri.parse("android.resource://com.apps.nishtha.shauswach/" + R.raw.swagat));
     }
+
+    @Override
+    protected void onPause() {
+        if (mediaPlayer.isPlaying()) mediaPlayer.stop();
+        mediaPlayer.release();
+        super.onPause();
+    }
+
 }

@@ -15,6 +15,8 @@ import android.widget.Toast;
 import com.apps.nishtha.shauswach.Adapter.CardAdapter;
 import com.apps.nishtha.shauswach.Card;
 import com.apps.nishtha.shauswach.R;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -39,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
         recView = (RecyclerView) findViewById(R.id.recView);
         cardAdapter = new CardAdapter(this, cardArrayList);
+
         recView.setLayoutManager(new LinearLayoutManager(this));
         recView.setAdapter(cardAdapter);
 

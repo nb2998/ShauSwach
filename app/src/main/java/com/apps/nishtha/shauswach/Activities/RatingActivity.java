@@ -15,9 +15,12 @@ import android.widget.RatingBar;
 import com.apps.nishtha.shauswach.Classes.ToiletData;
 import com.apps.nishtha.shauswach.Classes.ToiletDatabase;
 import com.apps.nishtha.shauswach.R;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class RatingActivity extends AppCompatActivity {
 
@@ -27,8 +30,8 @@ public class RatingActivity extends AppCompatActivity {
     Float rating;
     MediaPlayer mediaPlayer;
     ImageButton imageButton;
-    //    FirebaseDatabase fbDb;
-//    DatabaseReference dbRef;
+    FirebaseDatabase fbDb;
+    DatabaseReference dbRef;
     ToiletDatabase tdb;
     int toiletId;
     String ToiletName;
@@ -44,7 +47,7 @@ public class RatingActivity extends AppCompatActivity {
         tdb = new ToiletDatabase(this);
         toiletId = intent.getIntExtra("id", 0);
         final ArrayList<ToiletData> arrl = (ArrayList<ToiletData>) tdb.readData();
-        imageButton= (ImageButton) findViewById(R.id.btnPlayMain);
+        imageButton = (ImageButton) findViewById(R.id.btnPlayMain);
 
         yesbutton = (ImageButton) findViewById(R.id.buttonyes);
         yesbutton.setOnClickListener(new View.OnClickListener() {
@@ -63,7 +66,7 @@ public class RatingActivity extends AppCompatActivity {
 
         );
 
-        mediaPlayer=new MediaPlayer();
+        mediaPlayer = new MediaPlayer();
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -71,11 +74,11 @@ public class RatingActivity extends AppCompatActivity {
 
                 mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
                 try {/**/
-                    mediaPlayer.setDataSource(RatingActivity.this, Uri.parse("android.resource://com.apps.nishtha.shauswach/"+R.raw.tickcross));
+                    mediaPlayer.setDataSource(RatingActivity.this, Uri.parse("android.resource://com.apps.nishtha.shauswach/" + R.raw.tickcross));
                     mediaPlayer.prepareAsync();
                 } catch (IOException e) {
                     e.printStackTrace();
-                    Log.d("TAG", "onClick: "+e.getLocalizedMessage());
+                    Log.d("TAG", "onClick: " + e.getLocalizedMessage());
                 }
 
                 mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
@@ -109,17 +112,17 @@ public class RatingActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         try {
-            Intent intent=new Intent(this,MainActivity.class);
+            Intent intent = new Intent(this, MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
             finish();
-        }catch(Exception e){
-            Log.e("TAG", "onBackPressed: "+e.getLocalizedMessage() );
+        } catch (Exception e) {
+            Log.e("TAG", "onBackPressed: " + e.getLocalizedMessage());
         }
 
-        }
+    }
 
-        //    private void setListenerOnRatingBar() {
+    //    private void setListenerOnRatingBar() {
 //        ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
 //            @Override
 //            public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
@@ -148,5 +151,4 @@ public class RatingActivity extends AppCompatActivity {
 //    }
 
 
-
-    }
+}

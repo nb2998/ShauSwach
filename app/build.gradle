@@ -35,10 +35,13 @@ dependencies {
     compile 'com.android.support:design:27.+'
     compile 'com.android.support:recyclerview-v7:27.+'
     compile 'com.jpardogo.materialtabstrip:library:1.0.6'
-    compile 'com.google.firebase:firebase-database:11.0.2'
     compile 'com.afollestad:easyvideoplayer:0.3.0'
     compile 'com.github.rtoshiro.fullscreenvideoview:fullscreenvideoview:1.1.2'
     compile 'com.journeyapps:zxing-android-embedded:3.4.0'
+    compile 'com.google.firebase:firebase-database:16.0.1'
+    compile 'com.google.firebase:firebase-core:16.0.0'
     compile files ('libs/YouTubeAndroidPlayerApi.jar')
     testCompile 'junit:junit:4.12'
 }
+
+apply plugin: 'com.google.gms.google-services'

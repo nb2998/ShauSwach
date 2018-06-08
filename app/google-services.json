@@ -1,0 +1,59 @@
+{
+  "project_info": {
+    "project_number": "1093777339471",
+    "firebase_url": "https://shauswach-ea7e7.firebaseio.com",
+    "project_id": "shauswach-ea7e7",
+    "storage_bucket": "shauswach-ea7e7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1093777339471:android:ae1fc35594523194",
+        "android_client_info": {
+          "package_name": "com.apps.nishtha.shauswach"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1093777339471-dtj03vaheu9u5488ti0v0ee93kqltc94.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.apps.nishtha.shauswach",
+            "certificate_hash": "2b4486490ae50919310a6f107093b2e8b998dfa8"
+          }
+        },
+        {
+          "client_id": "1093777339471-cqehri7escks94e5jlrfi32048hbsdeg.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "1093777339471-cqehri7escks94e5jlrfi32048hbsdeg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCp6C-h2XzHE61DcM39NO5Ql43IlUxPJzs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1093777339471-cqehri7escks94e5jlrfi32048hbsdeg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
